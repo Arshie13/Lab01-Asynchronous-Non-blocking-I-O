@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "file-system": "^2.2.2",
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {
+    "@types/node": "^20.7.0",
+    "@types/readline-sync": "^1.4.4"
+  }
+}
