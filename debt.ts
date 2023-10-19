@@ -8,37 +8,43 @@ function isNumber(value: string): boolean {
 }
 
 async function utangs() {
-  while (true) {
-    console.log('Utang menu:');
-    console.log('1. dugang utang');
-    console.log('2. lista ang may utang');
-    console.log('3. guwa');
 
-    const choice = readline.question('pili: ');
+  try {
+    while (true) {
+      console.log('Utang menu:');
+      console.log('1. dugang utang');
+      console.log('2. lista ang may utang');
+      console.log('3. guwa');
 
-    switch (choice) {
-      case '1':
-        await addDebt();
-        break;
+      const choice = await readline.question('pili: ');
 
-      case '2':
-        await displayDebtors();
-        break;
+      switch (choice) {
+        case '1':
+          await addDebt();
+          break;
 
-      case '3':
-        console.log('untat lista')
-        return;
+        case '2':
+          await displayDebtors();
+          break;
 
-      default:
-        console.log('Way sa choices na.');
-        break;
+        case '3':
+          console.log('untat lista')
+          return;
+
+        default:
+          console.log('Way sa choices na.');
+          break;
+      }
     }
+  } catch (error) {
+    console.error(error)
   }
 }
 
 async function addDebt() {
-  const name = readline.question('Sino nag utang?: ');
-  const amountStr = readline.question('Pila inutang?: ');
+
+  const name = await readline.question('Sino nag utang?: ');
+  const amountStr = await readline.question('Pila inutang?: ');
 
   if (!isNumber(amountStr)) {
     console.log('Ndi ko ya bi sugot ky nd na kwarta.');
